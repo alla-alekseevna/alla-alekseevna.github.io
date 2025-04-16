@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Персональный сайт преподавателя</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#f8b3c5',secondary:'#a7d7c5'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #fffdf8;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-bg {
+            background-image: url('https://readdy.ai/api/search-image?query=soft%2520watercolor%2520background%2520with%2520light%2520pastel%2520colors%2520suitable%2520for%2520a%2520literature%2520teacher%2520website%252C%2520featuring%2520subtle%2520book%2520motifs%2520and%2520floral%2520elements%2520on%2520the%2520right%2520side%252C%2520with%2520clean%2520white%2520space%2520on%2520the%2520left%2520for%2520text%252C%2520elegant%2520and%2520professional%2520appearance&width=1600&height=800&seq=hero1&orientation=landscape');
+            background-size: cover;
+            background-position: center;
+        }
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .photo-item:hover {
+            transform: scale(1.03);
+            z-index: 10;
+        }
+        .contact-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #f8b3c5;
+            box-shadow: 0 0 0 3px rgba(248, 179, 197, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Навигационная панель -->
+    <header class="bg-white shadow-sm fixed w-full top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <h1 class="text-2xl font-['Pacifico'] text-primary">logo</h1>
+                <div class="ml-6 text-sm text-gray-600">Семикаракорский агротехнологический техникум</div>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-700 hover:text-primary transition duration-300">Обо мне</a>
+                <a href="#achievements" class="text-gray-700 hover:text-primary transition duration-300">Достижения</a>
+                <a href="#gallery" class="text-gray-700 hover:text-primary transition duration-300">Фотогалерея</a>
+                <a href="#contacts" class="text-gray-700 hover:text-primary transition duration-300">Контакты</a>
+            </nav>
+            <div class="md:hidden w-8 h-8 flex items-center justify-center cursor-pointer" id="mobileMenuButton">
+                <i class="ri-menu-line ri-lg"></i>
+            </div>
+        </div>
+        <!-- Мобильное меню -->
+        <div class="md:hidden hidden bg-white shadow-lg absolute w-full" id="mobileMenu">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+                <a href="#about" class="text-gray-700 hover:text-primary transition duration-300 py-2">Обо мне</a>
+                <a href="#achievements" class="text-gray-700 hover:text-primary transition duration-300 py-2">Достижения</a>
+                <a href="#gallery" class="text-gray-700 hover:text-primary transition duration-300 py-2">Фотогалерея</a>
+                <a href="#contacts" class="text-gray-700 hover:text-primary transition duration-300 py-2">Контакты</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Главный баннер -->
+    <section class="hero-bg pt-28 pb-16 md:pt-40 md:pb-24">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="max-w-2xl bg-white bg-opacity-85 backdrop-blur-sm p-8 md:p-10 rounded-xl shadow-lg">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">Старовойтенко Алла Алексеевна</h1>
+                <h2 class="text-xl md:text-2xl text-primary mb-6">Преподаватель русского языка и литературы</h2>
+                <p class="text-gray-700 text-lg mb-8">Добро пожаловать на мой персональный сайт! Здесь вы найдете информацию о моей преподавательской деятельности, профессиональных достижениях и творческих проектах.</p>
+                <a href="#about" class="inline-block bg-primary text-white px-6 py-3 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition duration-300 shadow-md">Узнать больше</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- О преподавателе -->
+    <section id="about" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">Обо мне</h2>
+            <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+                <div class="md:w-2/5">
+                    <div class="rounded-xl overflow-hidden shadow-lg">
+                        <img src="https://readdy.ai/api/search-image?query=professional%2520portrait%2520of%2520a%2520female%2520literature%2520teacher%2520in%2520her%252040s%252C%2520with%2520light%2520brown%2520hair%2520and%2520glasses%252C%2520wearing%2520elegant%2520professional%2520attire%252C%2520sitting%2520in%2520a%2520bright%2520classroom%2520with%2520bookshelves%2520in%2520the%2520background%252C%2520warm%2520lighting%252C%2520soft%2520focus%252C%2520professional%2520photography&width=600&height=800&seq=teacher1&orientation=portrait" alt="Екатерина Сергеевна" class="w-full h-auto object-cover object-top">
+                    </div>
+                </div>
+                <div class="md:w-3/5">
+                    <div class="bg-gray-50 p-6 md:p-8 rounded-xl shadow-sm border border-gray-100">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Профессиональный путь</h3>
+                        <p class="text-gray-700 mb-4">Я работаю преподавателем русского языка и литературы в Семикаракорском агротехнологическом техникуме более 15 лет. Имею высшее филологическое образование, окончила Ростовский государственный педагогический университет с отличием.</p>
+                        <p class="text-gray-700 mb-6">За годы работы я разработала авторские методики преподавания, которые помогают студентам не только освоить программу, но и по-настоящему полюбить русскую литературу и язык.</p>
+                        
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Моя философия преподавания</h3>
+                        <div class="flex items-start mb-4">
+                            <div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mr-4 flex-shrink-0">
+                                <i class="ri-book-open-line text-primary"></i>
+                            </div>
+                            <p class="text-gray-700">Я верю, что литература — это не просто предмет, а путь к пониманию человеческой души и истории. Моя цель — научить студентов мыслить критически и творчески.</p>
+                        </div>
+                        <div class="flex items-start mb-4">
+                            <div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mr-4 flex-shrink-0">
+                                <i class="ri-heart-line text-primary"></i>
+                            </div>
+                            <p class="text-gray-700">Я стремлюсь создать на занятиях атмосферу доверия и открытости, где каждый студент может высказать свое мнение и быть услышанным.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mr-4 flex-shrink-0">
+                                <i class="ri-lightbulb-line text-primary"></i>
+                            </div>
+                            <p class="text-gray-700">В своей работе я использую современные образовательные технологии, сочетая их с классическими методами преподавания.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Достижения -->
+    <section id="achievements" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-4 md:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">Профессиональные достижения</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div class="achievement-card bg-white rounded-xl shadow-md p-6 transition duration-300">
+                    <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mb-4">
+                        <i class="ri-award-line text-primary ri-lg"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Почетный работник образования</h3>
+                    <p class="text-gray-700">Награждена нагрудным знаком "Почетный работник среднего профессионального образования" за многолетний вклад в развитие образования.</p>
+                </div>
+                <div class="achievement-card bg-white rounded-xl shadow-md p-6 transition duration-300">
+                    <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mb-4">
+                        <i class="ri-book-mark-line text-primary ri-lg"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Авторские методические пособия</h3>
+                    <p class="text-gray-700">Разработала и опубликовала серию методических пособий по изучению современной русской литературы для студентов СПО.</p>
+                </div>
+                <div class="achievement-card bg-white rounded-xl shadow-md p-6 transition duration-300">
+                    <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mb-4">
+                        <i class="ri-trophy-line text-primary ri-lg"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Победитель конкурса "Педагог года"</h3>
+                    <p class="text-gray-700">Лауреат областного конкурса "Педагог года" в номинации "Инновации в преподавании гуманитарных дисциплин" (2023 г.).</p>
+                </div>
+                <div class="achievement-card bg-white rounded-xl shadow-md p-6 transition duration-300">
+                    <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mb-4">
+                        <i class="ri-user-star-line text-primary ri-lg"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Наставничество</h3>
+                    <p class="text-gray-700">Подготовила более 20 победителей и призеров областных и всероссийских олимпиад и конкурсов по русскому языку и литературе.</p>
+                </div>
+                <div class="achievement-card bg-white rounded-xl shadow-md p-6 transition duration-300">
+                    <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mb-4">
+                        <i class="ri-presentation-line text-primary ri-lg"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Выступления на конференциях</h3>
+                    <p class="text-gray-700">Регулярно выступаю с докладами на региональных и всероссийских педагогических конференциях по вопросам преподавания литературы.</p>
+                </div>
+                <div class="achievement-card bg-white rounded-xl shadow-md p-6 transition duration-300">
+                    <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mb-4">
+                        <i class="ri-graduation-cap-line text-primary ri-lg"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Высшая квалификационная категория</h3>
+                    <p class="text-gray-700">Имею высшую квалификационную категорию преподавателя с 2015 года, регулярно повышаю профессиональную квалификацию.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Фотогалерея -->
+    <section id="gallery" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">Фотогалерея</h2>
+            
+            <div class="mb-8 flex flex-wrap justify-center gap-4">
+                <button class="gallery-filter bg-white border border-gray-200 hover:border-primary text-gray-700 px-4 py-2 !rounded-button whitespace-nowrap transition duration-300 active" data-filter="all">Все фото</button>
+                <button class="gallery-filter bg-white border border-gray-200 hover:border-primary text-gray-700 px-4 py-2 !rounded-button whitespace-nowrap transition duration-300" data-filter="lessons">Уроки</button>
+                <button class="gallery-filter bg-white border border-gray-200 hover:border-primary text-gray-700 px-4 py-2 !rounded-button whitespace-nowrap transition duration-300" data-filter="events">Мероприятия</button>
+                <button class="gallery-filter bg-white border border-gray-200 hover:border-primary text-gray-700 px-4 py-2 !rounded-button whitespace-nowrap transition duration-300" data-filter="projects">Проекты</button>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="photo-item transition duration-300 cursor-pointer" data-category="lessons">
+                    <div class="relative rounded-xl overflow-hidden shadow-md">
+                        <img src="https://readdy.ai/api/search-image?query=female%2520literature%2520teacher%2520in%2520a%2520bright%2520classroom%2520with%2520students%2520discussing%2520books%252C%2520engaged%2520learning%2520environment%252C%2520bookshelves%2520in%2520background%252C%2520warm%2520lighting%252C%2520professional%2520photography%252C%2520candid%2520teaching%2520moment&width=600&height=400&seq=class1&orientation=landscape" alt="Урок литературы" class="w-full h-64 object-cover object-top">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition duration-300 flex items-center justify-center">
+                            <div class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-0 hover:bg-opacity-80 rounded-full transition duration-300">
+                                <i class="ri-zoom-in-line text-transparent hover:text-primary ri-lg"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-600">Обсуждение произведений А.П. Чехова</p>
+                </div>
+                <div class="photo-item transition duration-300 cursor-pointer" data-category="events">
+                    <div class="relative rounded-xl overflow-hidden shadow-md">
+                        <img src="https://readdy.ai/api/search-image?query=literary%2520evening%2520event%2520in%2520a%2520school%2520library%252C%2520students%2520and%2520teacher%2520discussing%2520poetry%252C%2520books%2520and%2520tea%2520cups%2520on%2520table%252C%2520cozy%2520atmosphere%252C%2520warm%2520lighting%252C%2520professional%2520photography&width=600&height=400&seq=event1&orientation=landscape" alt="Литературный вечер" class="w-full h-64 object-cover object-top">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition duration-300 flex items-center justify-center">
+                            <div class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-0 hover:bg-opacity-80 rounded-full transition duration-300">
+                                <i class="ri-zoom-in-line text-transparent hover:text-primary ri-lg"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-600">Литературный вечер "Поэзия Серебряного века"</p>
+                </div>
+                <div class="photo-item transition duration-300 cursor-pointer" data-category="projects">
+                    <div class="relative rounded-xl overflow-hidden shadow-md">
+                        <img src="https://readdy.ai/api/search-image?query=students%2520working%2520on%2520a%2520literature%2520project%252C%2520creating%2520posters%2520and%2520presentations%2520about%2520Russian%2520authors%252C%2520teacher%2520guiding%2520them%252C%2520classroom%2520setting%252C%2520creative%2520atmosphere%252C%2520professional%2520photography&width=600&height=400&seq=project1&orientation=landscape" alt="Проектная работа" class="w-full h-64 object-cover object-top">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition duration-300 flex items-center justify-center">
+                            <div class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-0 hover:bg-opacity-80 rounded-full transition duration-300">
+                                <i class="ri-zoom-in-line text-transparent hover:text-primary ri-lg"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-600">Проект "Литературная карта России"</p>
+                </div>
+                <div class="photo-item transition duration-300 cursor-pointer" data-category="lessons">
+                    <div class="relative rounded-xl overflow-hidden shadow-md">
+                        <img src="https://readdy.ai/api/search-image?query=interactive%2520Russian%2520language%2520lesson%252C%2520teacher%2520at%2520whiteboard%2520explaining%2520grammar%252C%2520students%2520taking%2520notes%252C%2520bright%2520classroom%252C%2520educational%2520posters%2520on%2520walls%252C%2520professional%2520photography&width=600&height=400&seq=class2&orientation=landscape" alt="Урок русского языка" class="w-full h-64 object-cover object-top">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition duration-300 flex items-center justify-center">
+                            <div class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-0 hover:bg-opacity-80 rounded-full transition duration-300">
+                                <i class="ri-zoom-in-line text-transparent hover:text-primary ri-lg"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-600">Интерактивный урок по синтаксису</p>
+                </div>
+                <div class="photo-item transition duration-300 cursor-pointer" data-category="events">
+                    <div class="relative rounded-xl overflow-hidden shadow-md">
+                        <img src="https://readdy.ai/api/search-image?query=school%2520theater%2520performance%2520based%2520on%2520Russian%2520literature%252C%2520students%2520in%2520costumes%2520on%2520stage%252C%2520teacher%2520directing%2520from%2520side%252C%2520audience%2520watching%252C%2520stage%2520lighting%252C%2520professional%2520photography&width=600&height=400&seq=event2&orientation=landscape" alt="Театральная постановка" class="w-full h-64 object-cover object-top">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition duration-300 flex items-center justify-center">
+                            <div class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-0 hover:bg-opacity-80 rounded-full transition duration-300">
+                                <i class="ri-zoom-in-line text-transparent hover:text-primary ri-lg"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-600">Спектакль по пьесе А.Н. Островского</p>
+                </div>
+                <div class="photo-item transition duration-300 cursor-pointer" data-category="projects">
+                    <div class="relative rounded-xl overflow-hidden shadow-md">
+                        <img src="https://readdy.ai/api/search-image?query=literature%2520exhibition%2520in%2520school%2520hall%252C%2520students%2520presenting%2520their%2520research%2520on%2520Russian%2520writers%252C%2520display%2520boards%2520with%2520information%2520and%2520images%252C%2520teacher%2520evaluating%2520projects%252C%2520professional%2520photography&width=600&height=400&seq=project2&orientation=landscape" alt="Выставка проектов" class="w-full h-64 object-cover object-top">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition duration-300 flex items-center justify-center">
+                            <div class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-0 hover:bg-opacity-80 rounded-full transition duration-300">
+                                <i class="ri-zoom-in-line text-transparent hover:text-primary ri-lg"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-600">Выставка исследовательских работ</p>
+                </div>
+                <div class="photo-item transition duration-300 cursor-pointer" data-category="events">
+                    <div class="relative rounded-xl overflow-hidden shadow-md">
+                        <img src="https://readdy.ai/api/search-image?query=teacher%2520receiving%2520award%2520at%2520educational%2520conference%252C%2520formal%2520ceremony%252C%2520presenter%2520handing%2520certificate%252C%2520audience%2520of%2520educators%252C%2520professional%2520setting%252C%2520official%2520photography&width=600&height=400&seq=award1&orientation=landscape" alt="Награждение" class="w-full h-64 object-cover object-top">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition duration-300 flex items-center justify-center">
+                            <div class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-0 hover:bg-opacity-80 rounded-full transition duration-300">
+                                <i class="ri-zoom-in-line text-transparent hover:text-primary ri-lg"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-600">Церемония награждения "Педагог года"</p>
+                </div>
+                <div class="photo-item transition duration-300 cursor-pointer" data-category="lessons">
+                    <div class="relative rounded-xl overflow-hidden shadow-md">
+                        <img src="https://readdy.ai/api/search-image?query=outdoor%2520literature%2520class%2520in%2520park%252C%2520teacher%2520and%2520students%2520sitting%2520in%2520circle%2520reading%2520books%252C%2520summer%2520day%252C%2520trees%2520and%2520nature%2520in%2520background%252C%2520relaxed%2520learning%2520environment%252C%2520professional%2520photography&width=600&height=400&seq=class3&orientation=landscape" alt="Урок на природе" class="w-full h-64 object-cover object-top">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition duration-300 flex items-center justify-center">
+                            <div class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-0 hover:bg-opacity-80 rounded-full transition duration-300">
+                                <i class="ri-zoom-in-line text-transparent hover:text-primary ri-lg"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-600">Выездной урок "Литература и природа"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Модальное окно для фотографий -->
+    <div id="photoModal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden flex items-center justify-center">
+        <div class="relative max-w-4xl w-full mx-4">
+            <div class="w-10 h-10 flex items-center justify-center absolute top-4 right-4 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full cursor-pointer" id="closeModal">
+                <i class="ri-close-line text-white ri-lg"></i>
+            </div>
+            <img id="modalImage" src="" alt="Увеличенное фото" class="w-full h-auto rounded-lg">
+            <p id="modalCaption" class="text-white text-center mt-4 text-lg"></p>
+        </div>
+    </div>
+
+    <!-- Контакты -->
+    <section id="contacts" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-4 md:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">Контакты</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="contact-card bg-white rounded-xl shadow-md p-6 transition duration-300 flex flex-col items-center text-center">
+                        <div class="w-14 h-14 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mb-4">
+                            <i class="ri-phone-line text-primary ri-lg"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Телефон</h3>
+                        <p class="text-gray-700">+7 (988) 894-80-28</p>
+                        <button class="mt-4 text-primary hover:text-primary/80 text-sm flex items-center gap-1 copy-button" data-copy="+79281234567">
+                            <i class="ri-file-copy-line"></i> Копировать
+                        </button>
+                    </div>
+                    <div class="contact-card bg-white rounded-xl shadow-md p-6 transition duration-300 flex flex-col items-center text-center">
+                        <div class="w-14 h-14 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mb-4">
+                            <i class="ri-whatsapp-line text-primary ri-lg"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">WhatsApp</h3>
+                        <p class="text-gray-700">+7 (988) 894-80-28</p>
+                        <a href="https://wa.me/79281234567" target="_blank" class="mt-4 text-primary hover:text-primary/80 text-sm flex items-center gap-1">
+                            <i class="ri-arrow-right-line"></i> Написать
+                        </a>
+                    </div>
+                    <div class="contact-card bg-white rounded-xl shadow-md p-6 transition duration-300 flex flex-col items-center text-center">
+                        <div class="w-14 h-14 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mb-4">
+                            <i class="ri-mail-line text-primary ri-lg"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Email</h3>
+                        <p class="text-gray-700">ivanova.es@sateh.ru</p>
+                        <button class="mt-4 text-primary hover:text-primary/80 text-sm flex items-center gap-1 copy-button" data-copy="ivanova.es@sateh.ru">
+                            <i class="ri-file-copy-line"></i> Копировать
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="mt-12 text-center">
+                    <p class="text-gray-700 mb-4">Вы можете связаться со мной по любым вопросам, касающимся учебного процесса, дополнительных занятий или консультаций.</p>
+                    <p class="text-gray-700">Рабочие дни: понедельник — пятница, с 9:00 до 17:00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал сайта -->
+    <footer class="bg-white border-t border-gray-200 py-8">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h1 class="text-2xl font-['Pacifico'] text-primary">logo</h1>
+                    <p class="text-gray-600 mt-2">Семикаракорский агротехнологический техникум</p>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="text-gray-600">© 2025 Старовойтенко Алла Алексеевна</p>
+                    <p class="text-gray-500 text-sm mt-1">Последнее обновление: 16 апреля 2025 г.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Кнопка "Наверх" -->
+    <button id="scrollToTop" class="fixed bottom-6 right-6 w-12 h-12 flex items-center justify-center bg-primary text-white rounded-full shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-opacity-90">
+        <i class="ri-arrow-up-line ri-lg"></i>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Мобильное меню
+            const mobileMenuButton = document.getElementById('mobileMenuButton');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Плавная прокрутка к разделам
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Закрыть мобильное меню после клика
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+            
+            // Кнопка "Наверх"
+            const scrollToTopButton = document.getElementById('scrollToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    scrollToTopButton.classList.remove('opacity-0', 'invisible');
+                    scrollToTopButton.classList.add('opacity-100', 'visible');
+                } else {
+                    scrollToTopButton.classList.remove('opacity-100', 'visible');
+                    scrollToTopButton.classList.add('opacity-0', 'invisible');
+                }
+            });
+            
+            scrollToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Фильтрация фотогалереи
+            const filterButtons = document.querySelectorAll('.gallery-filter');
+            const photoItems = document.querySelectorAll('.photo-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Убрать активный класс со всех кнопок
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('active', 'bg-primary', 'text-white');
+                        btn.classList.add('bg-white', 'text-gray-700');
+                    });
+                    
+                    // Добавить активный класс на нажатую кнопку
+                    this.classList.add('active', 'bg-primary', 'text-white');
+                    this.classList.remove('bg-white', 'text-gray-700');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Показать/скрыть фотографии в зависимости от фильтра
+                    photoItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Модальное окно для фотографий
+            const photoModal = document.getElementById('photoModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalCaption = document.getElementById('modalCaption');
+            const closeModal = document.getElementById('closeModal');
+            
+            // Открытие модального окна при клике на фото
+            photoItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const imgSrc = this.querySelector('img').src;
+                    const caption = this.querySelector('p').textContent;
+                    
+                    modalImage.src = imgSrc;
+                    modalCaption.textContent = caption;
+                    photoModal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            // Закрытие модального окна
+            closeModal.addEventListener('click', function() {
+                photoModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Закрытие модального окна при клике вне изображения
+            photoModal.addEventListener('click', function(e) {
+                if (e.target === photoModal) {
+                    photoModal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Закрытие модального окна при нажатии Escape
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && !photoModal.classList.contains('hidden')) {
+                    photoModal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Копирование контактной информации
+            const copyButtons = document.querySelectorAll('.copy-button');
+            
+            copyButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const textToCopy = this.getAttribute('data-copy');
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        // Изменение текста кнопки на короткое время
+                        const originalText = this.innerHTML;
+                        this.innerHTML = '<i class="ri-check-line"></i> Скопировано';
+                        
+                        setTimeout(() => {
+                            this.innerHTML = originalText;
+                        }, 2000);
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
